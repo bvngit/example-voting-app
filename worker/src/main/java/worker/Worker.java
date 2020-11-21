@@ -46,7 +46,11 @@ class Worker {
   }
 
   static Jedis connectToRedis(String host) {
-    Jedis conn = new Jedis(host);
+	JedisShardInfo shardInfo = new JedisShardInfo(host, 6379);
+    shardInfo.setPassword("redis_password");
+    Jedis conn = new Jedis(shardInfo);
+    conn.connect();
+    //Jedis conn = new Jedis(host);
 
     while (true) {
       try {
