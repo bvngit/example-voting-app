@@ -1,6 +1,7 @@
 package worker;
 
 import redis.clients.jedis.Jedis;
+import redis.clients.jedis.JedisShardInfo;
 import redis.clients.jedis.exceptions.JedisConnectionException;
 import java.sql.*;
 import org.json.JSONObject;
